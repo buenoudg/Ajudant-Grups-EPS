@@ -35,7 +35,7 @@ Una vegada iniciada la sessió, a sota del selector de grup original es veuran u
 Fent clic sobre el botó, s'amplia la informació a la taula de grups i s'obté una nova taula amb les dades dels alumnes. També apareixen tres nous botons:
   - El botó **Descarregar grups pel Moodle** permet obtenir un fitxer de text que es pot importar al Moodle de la UdG per no haver de crear els grups un a un. Es recomana revisar el fitxer abans de fer-ho servir.
   - El botó **Descarregar llistat alumnes** permet un fitxer CSV (que es pot obrir directament amb Excel) amb el llistat d'alumnes i les seves assignacions.
-  - El botó **Copiar al porta-retalls** còpia la mateixa informació del fitxer CSV al porta-retalls del sistema operatiu de forma que si ja es té obert un full de càlcul es pot enganzar sense haver de fer servir cap fitxer addicional.
+  - El botó **Copiar al porta-retalls** còpia la mateixa informació del fitxer CSV al porta-retalls del sistema operatiu de forma que si ja es té obert un full de càlcul es pot enganxar sense haver de fer servir cap fitxer addicional.
 
 [PENDENT: Afegir imatge]
 
