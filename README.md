@@ -9,15 +9,15 @@ Un script de [GreaseMonkey] per millorar la usabilitat de l'aplicació web per g
 
 Motivació
 ---------
-Sovint els professors de l'EPS obtenim els llistats d'alumnes assignats a cada grup de classe via una aplicació web força antiga. En no tenir accés al codi del servidor, s'ha desenvolupat aquest script per simplificar la obtenció de tots aquests llistats. L'script es pot instalar als navegadors Firefox i Chrome de l'ordinador de tot professor interessat.
+Sovint els professors de l'EPS obtenim els llistats d'alumnes assignats a cada grup de classe via una aplicació web força antiga. En no tenir accés al codi del servidor, s'ha desenvolupat aquest script per simplificar la obtenció de tots aquests llistats. L'script es pot instal·lar als navegadors Firefox i Chrome de l'ordinador de tot professor interessat.
 
 Instal·lació
 ------------
-En primer lloc cal tenir instalada una extensió al navegador que es vol fer servir:
+En primer lloc cal tenir instal·lada una extensió al navegador que es vol fer servir:
   - Per Firefox l'extensió és **GreaseMonkey**: https://addons.mozilla.org/en-US/firefox/addon/greasemonkey/
   - Per Chrome l'extensió és **TamperMonkey**: https://chrome.google.com/webstore/detail/tampermonkey/dhdgffkkebhmkfjojejmpbldmpobfkfo
 
-Una vegada instalada l'extensió és molt fàcil instal·lar l'script:
+Una vegada instal·lada l'extensió és molt fàcil instal·lar l'script:
   - Fer clic sobre el fitxer `Ajudant_Grups_EPS.user.js` llistat més a dalt
   - Fer clic sobre el botó **Raw** que hi ha a la dreta
   - Acceptar la instal·lació de l'script al navegador
