@@ -1,11 +1,11 @@
 Ajudant-Grups-EPS
 =================
 
-Un script de [GreaseMonkey] per millorar la usabilitat de l'aplicació web per gestió de grups d'alumnes a l'[EPS] de la [Universitat de Girona] (UdG)
+Un script de [GreaseMonkey] per millorar la usabilitat de l'aplicació web per gestió de grups d'alumnes a l'[EPS] de la [Universitat de Girona (UdG)]
 
 [GreaseMonkey]:http://es.wikipedia.org/wiki/Greasemonkey
 [EPS]:http://eps.udg.edu
-[Universitat de Girona]:http://www.udg.edu
+[Universitat de Girona (UdG)]:http://www.udg.edu
 
 Motivació
 ---------
