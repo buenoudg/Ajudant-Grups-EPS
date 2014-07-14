@@ -26,7 +26,7 @@ Una vegada instal·lada l'extensió és molt fàcil instal·lar l'script:
 --
 L'script es posarà en marxa quan es visiti una URL corresponent a la aplicació web. Una manera molt senzilla de comprovar si està funcionant és intentar iniciar sessió sense escriure el nom d'usuari o la contrasenya. El navegador ens indicarà que cal escriure totes dues coses abans de continuar (el comportament original era obtenir un críptic missatge d'error).
 
-![Inici de sessió millorat](README_images/filtre.png)
+[PENDENT: Afegir imatge]
 
 Una vegada iniciada la sessió, a sota del selector de grup original es veuran una o més pestanyes (una pestanya per assignatura), una taula amb la llista de grups i un botó "*Compilar llistat alumnes*". 
 
