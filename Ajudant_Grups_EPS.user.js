@@ -3,9 +3,9 @@
 // @namespace   http://atc.udg.edu/~bueno/
 // @description Millores de l'aplicació web d'assignació de grups a l'EPS de la UdG
 // @include     /^https?://pserv\.udg\.edu/.+/((inici|matrProf|configuracio).aspx)?$/
-// @require     http://code.jquery.com/jquery-2.1.0.min.js
-// @require     http://code.jquery.com/ui/1.10.4/jquery-ui.min.js
-// @resource    jQueryUICSS  http://code.jquery.com/ui/1.10.4/themes/redmond/jquery-ui.min.css
+// @require     http://code.jquery.com/jquery-2.1.1.min.js
+// @require     http://code.jquery.com/ui/1.11.0/jquery-ui.min.js
+// @resource    jQueryUICSS  http://code.jquery.com/ui/1.11.0/themes/redmond/jquery-ui.min.css
 // @version     0.4
 // @grant       GM_getResourceText
 // @grant       GM_addStyle
