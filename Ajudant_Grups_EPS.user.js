@@ -3,27 +3,29 @@
 // @namespace   http://atc.udg.edu/~bueno/
 // @description Millores de l'aplicació web d'assignació de grups a l'EPS de la UdG
 // @include     /^https?://pserv\.udg\.edu/.+/((inici|matrProf|configuracio).aspx)?$/
-// @require     http://code.jquery.com/jquery-2.1.1.min.js
-// @require     http://code.jquery.com/ui/1.11.0/jquery-ui.min.js
-// @resource    jQueryUICSS  http://code.jquery.com/ui/1.11.0/themes/redmond/jquery-ui.min.css
-// @version     0.4
+// @require     http://code.jquery.com/jquery-2.1.4.min.js
+// @require     http://code.jquery.com/ui/1.11.4/jquery-ui.min.js
+// @resource    jQueryUICSS  http://code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.min.css
+// @version     0.4.1
 // @grant       GM_getResourceText
 // @grant       GM_addStyle
 // @grant       GM_setClipboard
 // ==/UserScript==
 
 /* Changelog:
-- v0.1 - Llistat únic (tot barrejat) per copiar i enganxar
-- v0.2 - Un llistat diferent per a cada assignatura (fent ús de jQuery UI Tabs)
-       - Ús forçat d'HTTPS
-       - Millores al formulari d'autenticació
-       - Compatible amb l'usuari "admin"
-- v0.3 - Còpia del llistat d'alumnes al porta-retalls (fent ús de jQuery UI Buttons)
-       - Descàrrega del llistat d'alumnes en format CSV (generat al navegador, no al servidor)
-       - Compatible amb l'extensió TamperMonkey de Google Chrome
-- v0.4 - Taula d'alumnes sempre ordenada alfabèticament
-       - Descàrrega del llistat de grups per importar-los al Moodle (generat al navegador)
-       - (Només per a "admin") filtrat d'estudiants (fent ús de jQuery UI Autocomplete)
+- v0.1   - Llistat únic (tot barrejat) per copiar i enganxar
+- v0.2   - Un llistat diferent per a cada assignatura (fent ús de jQuery UI Tabs)
+         - Ús forçat d'HTTPS
+         - Millores al formulari d'autenticació
+         - Compatible amb l'usuari "admin"
+- v0.3   - Còpia del llistat d'alumnes al porta-retalls (fent ús de jQuery UI Buttons)
+         - Descàrrega del llistat d'alumnes en format CSV (generat al navegador, no al servidor)
+         - Compatible amb l'extensió TamperMonkey de Google Chrome
+- v0.4   - Taula d'alumnes sempre ordenada alfabèticament
+         - Descàrrega del llistat de grups per importar-los al Moodle (generat al navegador)
+         - (Només per a "admin") filtrat d'estudiants (fent ús de jQuery UI Autocomplete)
+- v0.4.1 - Correcció de la detecció de grups pel curs 2015/16
+         - Actualització de jQuery i jQuery UI
 */
 
 // Redirigeix a la versió segura de la pàgina
@@ -65,7 +67,7 @@ $(document).ready(function() {
     var llistaTipusGrup = [];
     var llistaAssignatures = [];
     var esAdmin = ($("#LDadesPersonals").length === 0);
-    var informacioGrupRE = /^([^\.]+)\.\s+([^\.]+)\s+-\s+(Grup\s+[^\s]+)$/;
+    var informacioGrupRE = /^([^\.]+)\.\s+([^\.]+)\s+-\s+([^\s]+)$/;
     $("#LLlistatsGrups option").each(function() {
       // Guarda a informacioGrup el nom de l'assignatura i el tipus, el nom i l'id numèric del grup
       var informacioGrup = informacioGrupRE.exec($(this).text().trim());
@@ -259,7 +261,7 @@ $(document).ready(function() {
   }
 });
 
-// Obté el text d'una taula ordenat alfabèticament, podent indicar els separadors de columna i fila
+// Obté el text d'una taula <del>ordenat alfabèticament</del>, podent indicar els separadors de columna i fila
 function textTaula($taula, separadorColumna, separadorFila) {
   var fileres = [];
   $taula.find("tr").each(function() {
