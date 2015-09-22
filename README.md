@@ -9,7 +9,7 @@ Un script de [GreaseMonkey] per millorar la usabilitat de l'aplicació web per g
 
 Motivació
 ---------
-Sovint els professors de l'EPS obtenim els llistats d'alumnes assignats a cada grup de classe via una aplicació web força antiga. En no tenir accés al codi del servidor, s'ha desenvolupat aquest script per simplificar la obtenció de tots aquests llistats. L'script es pot instal·lar als navegadors Firefox i Chrome de l'ordinador de tot professor interessat.
+Sovint els professors de l'EPS obtenim els llistats d'alumnes assignats a cada grup de classe via una aplicació web força antiga. En no tenir accés al codi del servidor, s'ha desenvolupat aquest script per simplificar l'obtenció de tots aquests llistats. L'script es pot instal·lar als navegadors Firefox i Chrome de l'ordinador de tot professor interessat.
 
 Instal·lació
 ------------
@@ -24,7 +24,7 @@ Una vegada instal·lada l'extensió és molt fàcil instal·lar l'script:
 
 Ús
 --
-L'script es posarà en marxa quan es visiti una URL corresponent a la aplicació web. Una manera molt senzilla de comprovar si està funcionant és intentar iniciar sessió sense escriure el nom d'usuari o la contrasenya. El navegador ens indicarà que cal escriure totes dues coses abans de continuar (el comportament original era obtenir un críptic missatge d'error).
+L'script es posarà en marxa quan es visiti una URL corresponent a l'aplicació web. Una manera molt senzilla de comprovar si està funcionant és intentar iniciar sessió sense escriure el nom d'usuari o la contrasenya. El navegador ens indicarà que cal escriure totes dues coses abans de continuar (el comportament original era obtenir un críptic missatge d'error).
 
 ![Inici de sessió millorat](README_images/inici_millorat.png)
 

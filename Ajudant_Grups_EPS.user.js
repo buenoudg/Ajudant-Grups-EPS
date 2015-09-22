@@ -6,7 +6,7 @@
 // @require     http://code.jquery.com/jquery-2.1.4.min.js
 // @require     http://code.jquery.com/ui/1.11.4/jquery-ui.min.js
 // @resource    jQueryUICSS  http://code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.min.css
-// @version     0.4.1
+// @version     0.4.2
 // @grant       GM_getResourceText
 // @grant       GM_addStyle
 // @grant       GM_setClipboard
@@ -24,8 +24,9 @@
 - v0.4   - Taula d'alumnes sempre ordenada alfabèticament
          - Descàrrega del llistat de grups per importar-los al Moodle (generat al navegador)
          - (Només per a "admin") filtrat d'estudiants (fent ús de jQuery UI Autocomplete)
-- v0.4.1 - Correcció de la detecció de grups pel curs 2015/16
+- v0.4.1 - [Curs 2015/16] Accepta qualsevol nom de grup (abans havia de començar per "Grup ")
          - Actualització de jQuery i jQuery UI
+- v0.4.2 - [Curs 2015/16] Accepta grups sense tipus (per quan no diu "Laboratori" o quelcom semblant)
 */
 
 // Redirigeix a la versió segura de la pàgina
@@ -67,12 +68,14 @@ $(document).ready(function() {
     var llistaTipusGrup = [];
     var llistaAssignatures = [];
     var esAdmin = ($("#LDadesPersonals").length === 0);
-    var informacioGrupRE = /^([^\.]+)\.\s+([^\.]+)\s+-\s+([^\s]+)$/;
+    var informacioGrupRE = /^([^\.]+)(?:\.\s+([^\.]+))?\s+-\s+([^\s]+)$/;
     $("#LLlistatsGrups option").each(function() {
       // Guarda a informacioGrup el nom de l'assignatura i el tipus, el nom i l'id numèric del grup
       var informacioGrup = informacioGrupRE.exec($(this).text().trim());
       informacioGrup.shift();
       informacioGrup[0] = formatTitol(informacioGrup[0]);
+      if (typeof informacioGrup[1] == "undefined")
+        informacioGrup[1] = "Altres";
       informacioGrup.push($(this).val());
       // Guarda la informació pertinent a cada llistat (amb repeticions si n'hi ha)
       // AVÍS: Es barrejen els tipus de grups de totes les assignatures (simplificació intencionada)
