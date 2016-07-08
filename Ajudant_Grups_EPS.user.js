@@ -2,11 +2,11 @@
 // @name        Ajudant Grups EPS
 // @namespace   http://atc.udg.edu/~bueno/
 // @description Millores de l'aplicació web d'assignació de grups a l'EPS de la UdG
-// @include     /^https?://pserv\.udg\.edu/.+/((inici|matrProf|configuracio).aspx)?$/
-// @require     http://code.jquery.com/jquery-2.1.4.min.js
-// @require     http://code.jquery.com/ui/1.11.4/jquery-ui.min.js
-// @resource    jQueryUICSS  http://code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.min.css
-// @version     0.4.2
+// @include     /^https?://[ap]serv\.udg\.edu/.+/((inici|matrProf|configuracio).aspx)?$/
+// @require     https://code.jquery.com/jquery-3.1.0.min.js
+// @require     https://code.jquery.com/ui/1.11.4/jquery-ui.min.js
+// @resource    jQueryUICSS  https://code.jquery.com/ui/1.11.4/themes/redmond/jquery-ui.css
+// @version     0.4.3
 // @grant       GM_getResourceText
 // @grant       GM_addStyle
 // @grant       GM_setClipboard
@@ -27,6 +27,7 @@
 - v0.4.1 - [Curs 2015/16] Accepta qualsevol nom de grup (abans havia de començar per "Grup ")
          - Actualització de jQuery i jQuery UI
 - v0.4.2 - [Curs 2015/16] Accepta grups sense tipus (per quan no diu "Laboratori" o quelcom semblant)
+- v0.4.3 - [Curs 2015/16] Funciona amb la nova versió ("aserv" en lloc de "pserv", grups amb espais al nom) i jQuery actualitzat
 */
 
 // Redirigeix a la versió segura de la pàgina
@@ -68,7 +69,7 @@ $(document).ready(function() {
     var llistaTipusGrup = [];
     var llistaAssignatures = [];
     var esAdmin = ($("#LDadesPersonals").length === 0);
-    var informacioGrupRE = /^([^\.]+)(?:\.\s+([^\.]+))?\s+-\s+([^\s]+)$/;
+    var informacioGrupRE = /^([^\.]+)(?:\.\s+([^\.]+))?\s+-\s+(.+)$/;
     $("#LLlistatsGrups option").each(function() {
       // Guarda a informacioGrup el nom de l'assignatura i el tipus, el nom i l'id numèric del grup
       var informacioGrup = informacioGrupRE.exec($(this).text().trim());
