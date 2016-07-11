@@ -3,7 +3,7 @@
 // @namespace   http://atc.udg.edu/~bueno/
 // @description Millores al Moodle de la UdG - VERSIÓ MOLT PRELIMINAR
 // @include     /^http://moodle2\.udg\.edu/.+$/
-// @version     0.0.1
+// @version     0.0.2
 // @require     http://code.jquery.com/jquery-2.1.4.min.js
 // @require     http://code.jquery.com/ui/1.11.4/jquery-ui.min.js
 // @grant       GM_getResourceText
@@ -11,6 +11,11 @@
 // @grant       GM_setValue
 // @grant       GM_getValue
 // ==/UserScript==
+
+/* Changelog:
+- v0.01  - Versió inicial
+- v0.02  - RegExp de la llista d'estudiants actualitzada (ara inclou e-mail)
+*/
 
 // Totes les modificacions fan servir jQuery i s'executen una vegada la pàgina s'ha carregat
 $(document).ready(function() {
@@ -34,20 +39,20 @@ $(document).ready(function() {
 		var nomGrup = $("#region-main h3").text().substr(27); // ignora "Afegeix/suprimeix usuaris: "
 		var hackData = GM_getValue("hackData").split(/\r?\n/);
 		console.log("hackData (" + hackData.length + " lines) read");
-    var informacioEstudiantRE = /^.+\s\((\d+)\)\s\(\d\)$/;
+		var informacioEstudiantRE = /^.+\s\((\d+), .+\)\s\(\d\)$/;
 		$("#addselect option").each(function() {
-      var optionEstudiant = $(this);
-   		optionEstudiant.prop("selected", false);
-      var informacioEstudiant = informacioEstudiantRE.exec(optionEstudiant.text().trim());
-      $.each(hackData, function (hackIndex, hackData) {
-        if (hackData.indexOf(informacioEstudiant[1]) > -1) { // informacioEstudiant[1] és l'ID de la UdG
-        	hackData = hackData.replace(informacioEstudiant[1], "").trim();
-        	if (hackData.indexOf(nomGrup) > -1) { // ATENCIÓ: FALLA SI EL NOM D'UN GRUP ESTÀ INCLÓS A UN ALTRE
-        		optionEstudiant.prop("selected", true);
-        		comptadorEstudiants++;
-        	}
-        }
-      });
+			var optionEstudiant = $(this);
+   			optionEstudiant.prop("selected", false);
+			var informacioEstudiant = informacioEstudiantRE.exec(optionEstudiant.text().trim());
+			$.each(hackData, function (hackIndex, hackData) {
+				if (hackData.indexOf(informacioEstudiant[1]) > -1) { // informacioEstudiant[1] és l'ID de la UdG
+		        		hackData = hackData.replace(informacioEstudiant[1], "").trim();
+        				if (hackData.indexOf(nomGrup) > -1) { // ATENCIÓ: FALLA SI EL NOM D'UN GRUP ESTÀ INCLÓS A UN ALTRE
+        					optionEstudiant.prop("selected", true);
+        					comptadorEstudiants++;
+		        		}
+				}
+			});
 		});
 	}
 });
