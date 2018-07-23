@@ -3,7 +3,7 @@
 // @namespace   http://atc.udg.edu/~bueno/
 // @description Millores al Moodle de la UdG - VERSIÓ MOLT PRELIMINAR
 // @include     /^http://moodle2\.udg\.edu/.+$/
-// @version     0.0.2
+// @version     0.0.3
 // @require     http://code.jquery.com/jquery-2.1.4.min.js
 // @require     http://code.jquery.com/ui/1.11.4/jquery-ui.min.js
 // @grant       GM_getResourceText
@@ -15,6 +15,7 @@
 /* Changelog:
 - v0.01  - Versió inicial
 - v0.02  - RegExp de la llista d'estudiants actualitzada (ara inclou e-mail)
+- v0.03  - Activació del botó "Afegir"
 */
 
 // Totes les modificacions fan servir jQuery i s'executen una vegada la pàgina s'ha carregat
@@ -55,4 +56,5 @@ $(document).ready(function() {
 			});
 		});
 	}
+	$("#add").removeAttr("disabled");
 });
